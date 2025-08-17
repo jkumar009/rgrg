@@ -158,3 +158,11 @@ html, body {
     display: flex;
     flex-direction: column;
 }
+
+/* Home screen school Photo */
+.responsive-photo {
+    max-width: 100%;   /* never larger than screen */
+    height: auto;      /* keeps correct aspect ratio */
+    border-radius: 8px; /* optional rounded corners */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2); /* optional styling */
+}
