@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF & JPG Compressor</title>
+  <link rel="stylesheet" href="comprassor.css">
+</head>
+<body>
+  <header>
+    <h1>📄 PDF & JPG Compressor</h1>
+    <p>Compress your files quickly & securely – all in your browser.</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>🖼 JPG Compressor</h2>
+      <div id="jpgDrop" class="drop-zone">
+        <p>Drag & Drop JPG here or Click to Upload</p>
+        <input type="file" id="jpgInput" accept="image/jpeg" hidden>
+      </div>
+      <label for="jpgQuality">Quality (10–100):</label>
+      <input type="range" id="jpgQuality" min="10" max="100" value="70">
+      <button onclick="compressJPG()">Compress JPG</button>
+      <a id="jpgDownload" style="display:none;" download="compressed.jpg">⬇ Download JPG</a>
+    </div>
+
+    <div class="card">
+      <h2>📑 PDF Compressor</h2>
+      <div id="pdfDrop" class="drop-zone">
+        <p>Drag & Drop PDF here or Click to Upload</p>
+        <input type="file" id="pdfInput" accept="application/pdf" hidden>
+      </div>
+      <label for="pdfScale">Scale (0.3–1):</label>
+      <input type="range" id="pdfScale" min="0.3" max="1" step="0.1" value="0.7">
+      <button onclick="compressPDF()">Compress PDF</button>
+      <a id="pdfDownload" style="display:none;" download="compressed.pdf">⬇ Download PDF</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Designed with ❤️ for Students | Created by Jagannath</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="comprassor.js"></script>
+</body>
+</html>
