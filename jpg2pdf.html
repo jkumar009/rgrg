@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>JPG ↔ PDF Converter</title>
-    <!-- Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <link rel="stylesheet" href="styleforjpg2pdf.css">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>📄 JPG → PDF Converter</h1>
-    <p class="subtitle">Convert between JPG and PDF instantly, in your browser</p>
+<head>
+  <meta charset="UTF-8">
+  <title>JPG ↔ PDF Converter</title>
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <link rel="stylesheet" href="styleforjpg2pdf.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📄 JPG ↔ PDF Converter</h1>
+  <p class="subtitle">Convert between JPG and PDF instantly, in your browser</p>
 
-    <div class="container">
-      <!-- JPG to PDF -->
-      <div class="box">
-        <h2>🖼 JPG → PDF</h2>
-        <div class="drop-area" id="jpgDrop">Drop JPGs here or click to upload
-          <input type="file" id="jpgInput" accept="image/jpeg" multiple hidden>
-        </div>
-        <div id="jpgPreview" class="preview"></div>
-        <button id="jpgConvertBtn">Convert</button>
-        <button id="downloadPDF" style="display:none;">Download PDF</button>
+  <div class="container">
+    <!-- JPG to PDF -->
+    <div class="box">
+      <h2>🖼 JPG → PDF</h2>
+      <div class="drop-area" id="jpgDrop">Drop JPGs here or click to upload
+        <input type="file" id="jpgInput" accept="image/jpeg" multiple hidden>
       </div>
 
-      <!-- PDF to JPG -->
-      <div class="box">
-        <h2>📕 PDF → JPG</h2>
-        <div class="drop-area" id="pdfDrop">Drop PDF here or click to upload
-          <input type="file" id="pdfInput" accept="application/pdf" hidden>
-        </div>
-        <div id="pdfPreview" class="preview"></div>
-        <button id="pdfConvertBtn">Convert</button>
-        <div id="jpgDownloads"></div>
-      </div>
+      <!-- Orientation selector -->
+      <label for="orientation">Orientation:</label>
+      <select id="orientation">
+        <option value="auto">Auto (detect)</option>
+        <option value="p">Portrait</option>
+        <option value="l">Landscape</option>
+      </select>
+
+      <div id="jpgPreview" class="preview"></div>
+      <button id="jpgConvertBtn">Convert</button>
+      <button id="downloadPDF" style="display:none;">Download PDF</button>
     </div>
-    <br><br><br>
-    <a href="link.html" class="backbotton">Return</a>
-    <script src="script.js"></script>
 
-
-    <!-- Footer -->
-    <br> <br> <br> <br> <br> <br>
-    <footer>
+    <!-- PDF to JPG -->
+    <div class="box">
+      <h2>📕 PDF → JPG</h2>
+      <div class="drop-area" id="pdfDrop">Drop PDF here or click to upload
+        <input type="file" id="pdfInput" accept="application/pdf" hidden>
+      </div>
+      <div id="pdfPreview" class="preview"></div>
+      <button id="pdfConvertBtn">Convert</button>
+      <div id="jpgDownloads"></div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <a href="link.html" class="backbotton">Return</a>
+  <br>
+  <br>
+  <br>
+  <!-- Footer -->
+        <footer>
             <p>© 2025 Designed with ❤️ for students | Created By Jagannath Sir</p>
-    </footer>
-  </body>
+        </footer>
+  <script src="script.js"></script>
+</body>
 </html>

@@ -1,6 +1,6 @@
 let generatedPDF = null;
 
-// Utility: Base64 conversion
+// Utility: convert File → Base64
 function toBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -18,7 +18,9 @@ async function convertJPGtoPDF() {
   const input = document.getElementById('jpgInput').files;
   if (input.length === 0) return alert("Please select JPG image(s)");
 
-  const pdf = new jsPDF();
+  const orientationChoice = document.getElementById("orientation").value;
+  let pdf;
+
   for (let i = 0; i < input.length; i++) {
     const imgData = await toBase64(input[i]);
     const img = new Image();
@@ -26,6 +28,17 @@ async function convertJPGtoPDF() {
 
     await new Promise(res => {
       img.onload = () => {
+        // auto detect or use dropdown value
+        const orientation = orientationChoice === "auto"
+          ? (img.width > img.height ? "l" : "p")
+          : orientationChoice;
+
+        if (i === 0) {
+          pdf = new jsPDF({ orientation, unit: "pt", format: "a4" });
+        } else {
+          pdf.addPage("a4", orientation);
+        }
+
         const pageWidth = pdf.internal.pageSize.getWidth();
         const pageHeight = pdf.internal.pageSize.getHeight();
         const ratio = Math.min(pageWidth / img.width, pageHeight / img.height);
@@ -34,8 +47,7 @@ async function convertJPGtoPDF() {
         const x = (pageWidth - w) / 2;
         const y = (pageHeight - h) / 2;
 
-        if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', x, y, w, h);
+        pdf.addImage(imgData, "JPEG", x, y, w, h);
         res();
       };
     });
@@ -107,6 +119,8 @@ async function convertPDFtoJPG() {
 function setupDrop(dropId, inputId) {
   const dropArea = document.getElementById(dropId);
   const input = document.getElementById(inputId);
+
+  if (!dropArea || !input) return;
 
   dropArea.addEventListener("click", () => input.click());
   dropArea.addEventListener("dragover", e => {

@@ -23,14 +23,6 @@ h1 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 450px;
-}
-.backbotton {
-  background: #2439f7;
-  padding: 20px;
-  color: #e6f0ff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   width: 350px;
 }
 .drop-area {
@@ -53,6 +45,16 @@ button {
   color: white;
   cursor: pointer;
 }
+.backbotton {
+  background: #2439f7;
+  padding: 20px;
+  color: #e6f0ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 350px;
+}
+
+
 button:hover {
   background: #00509e;
 }
@@ -67,4 +69,8 @@ button:hover {
   margin: 5px;
   border: 1px solid #ccc;
   border-radius: 6px;
+}
+label, select {
+  margin: 10px;
+  font-size: 14px;
 }
